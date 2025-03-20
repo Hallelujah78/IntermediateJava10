@@ -4,6 +4,7 @@
 package com.mycompany.intermediatejava10;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -13,10 +14,11 @@ import java.util.List;
  */
 public class IntermediateJava10 {
 
-    public static void output(List list) {
-        for (var item : list) {
-            System.out.println(item);
+    public static void output(Collection collection) {
+        for (var item : collection) {
+            System.out.print(item + " ");
         }
+        System.out.println("");
     }
 
     public static void main(String[] args) {
@@ -39,5 +41,15 @@ public class IntermediateJava10 {
 
         // Copy contents of list into listCopy
         Collections.copy(listCopy, list);
+        System.out.println("Copy of list: ");
+        output(listCopy);
+
+        Character[] charArr = new Character[3];
+        List<Character> charList = Arrays.asList(charArr);
+
+        // Fill collection with crap.
+        Collections.fill(charList, 'X'); // Change all items to 'X'
+        System.out.println("Content of charList: ");
+        output(charList);
     }
 }
